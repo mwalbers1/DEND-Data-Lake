@@ -1,5 +1,4 @@
-# Creating Analytical Tables on Apache Spark
-## Summary
+## Data Lake Project - Apache Spark and AWS S3
 The purpose of this project is to build an ETL pipeline for music streaming data which resides in AWS S3 as json files. There are two categories of data, the log events detailing songs listened to by users, and the song library consisting of song and artist details.  The ETL pipeline extracts the json log event and song data from AWS S3 and loads the relevant data attributes into dimension and fact tables residing on an AWS EMR cluster server. The newly created dimension and fact tables are then saved to separate parquet files on a destination S3 bucket.
 
 There are advantages to leveraging PySpark for this ETL process.  The Spark AWS EMR cluster can process the source json files in parallel which is faster than loading into a traditional RDBMS system or a data warehouse server.  Because Spark processes the source json files in memory, it is much faster than staging the data into physical storage before transforming and loading the data.  Spark is also scalable both vertically and horizontally to meet increased volumes of data.  The Spark cluster design described below reduces the need of running an AWS EMR cluster full time.
